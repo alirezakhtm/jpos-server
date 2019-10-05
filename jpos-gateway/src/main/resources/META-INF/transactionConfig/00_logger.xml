@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger name="Q2Logger" class="org.jpos.q2.qbean.LoggerAdaptor">
+
+	<!-- stdout log listener -->
+	<log-listener class="ir.navaco.mcb.credit.card.transaction.listener.loglisteners.SimpleLogListener" />
+
+	<!-- our customized log listener
+	<log-listener class="ir.navaco.mcb.credit.card.transaction.listener.loglisteners.ServerLogListener">
+		<property name="config" value="log4j.xml" />
+		<property name="delay" value="300000" />
+		<property name="priority" value="DEBUG"/>
+		<property name="log-name" value="CreditCardLog"/>
+	</log-listener> -->
+
+</logger>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- in high demanding environments, it is possible to define a separate space, defined as input-space -->
+<!-- For recovery purposes, a persistent space (defined with the property persistent-space) is required, i.e.: je:XXXX (XXXX being the name of the space) -->
+<txnmgr name="CreditCardTransactionManager" logger="Q2Logger" class="ir.navaco.mcb.credit.card.transaction.TransactionManager">
+	<!-- Space used by the TransactionManager to handle in-flight transactions. The TM uses a Space-based circular queue. if not specified will use tspace:default-->
+	<property name="space" value="transient:default" />
+	<!-- This is the Space-based queue where the TM looks for transactions to be processed. -->
+	<property name="queue" value="CerditCardTXNQueue" />
+	<!-- Defines the number of simultaneous sessions (Threads) used to process transactions. Defaults to one -->
+	<property name="sessions" value="5" />
+	<!-- If true, the TransactionManager logs a small report after each transaction -->
+	<property name="debug" value="true" />
+
+	<!-- ============================================= GENERAL PARTICIPANTS ============================================ -->
+	<!-- <1 step> Parse messages -->
+	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParserParticipant" logger="Q2Logger" />
+	<!-- <2 step> Seperate messages -->
+	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParticipantSelector" name="ParticipantSelector" logger="Q2Logger">
+		<property name="auth" value="AuthorisationRequestParticipant" />
+		<property name="finreq" value="FinancialRequestParticipant" />
+		<property name="finadv" value="FinancialAdviceParticipant" />
+		<property name="rev" value="ReversalAdviceParticipant" />
+		<property name="net" value="NetworkManagementParticipant" />
+	</participant>
+	<!-- <3 step> Seperate segment -->
+	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.SegmentSelector" name="SegmentSelector" logger="Q2Logger">
+		<property name="creditCard" value="CreditCardParticipant" />
+	</participant>-->
+
+	<!-- AUTHORISATION REQUEST 1100/1110 -->
+	<group name="AuthorisationRequestParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.authorisation.ValidationParticipant" logger="Q2Logger" />
+	</group>
+
+	<!-- FINANCIAL TRANSACTION REQUEST 1200/1210 -->
+	<group name="FinancialRequestParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.financial.request.ValidationParticipant" logger="Q2Logger" />
+	</group>
+
+	<!-- FINANCIAL TRANSACTION ADVICE 1220/1230 -->
+	<group name="FinancialAdviceParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.financial.advice.ValidationParticipant" logger="Q2Logger" />
+	</group>
+
+	<!-- REVERSAL ADVICE 1420/1430 -->
+	<group name="ReversalAdviceParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.reversal.ValidationParticipant" logger="Q2Logger" />
+	</group>
+
+	<!-- NETWORK MANAGEMENT 1804/1824/1814/1834 (NOT SUPPORTED)-->
+	<group name="NetworkManagementParticipant">
+		<!--<participant class="org.jpos.demo.transaction.Echo" logger="Q2Logger" realm="prepare-echo" />-->
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.network.ValidationParticipant" logger="Q2Logger" />
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.network.SendResponseParticipant" logger="Q2Logger" />
+	</group>
+
+	<!-- RECONCILIATION REQUEST 1500/1520/1510/1530/1502/1522/1512/1532 (NOT SUPPORTED)-->
+
+	<!-- ============================================== SEGMENT PARTICIPANTS ============================================= -->
+
+	<!-- LOAN PARTICIPENTS BEGIN -->
+	<!-- LOAN PARTICIPENTS END -->
+
+	<!-- CREDIT CARD PARTICIPENTS BEGIN -->
+	<!--<group name="CreditCardParticipant">
+		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.ResourcePrepareParticipant" logger="CreditCardLogger" />
+		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.SaveIsoMsgParticipant" logger="CreditCardLogger" />
+		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.ValidationParticipant" logger="CreditCardLogger" />
+		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.SaveCardTxParticipant" logger="CreditCardLogger" />
+		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.TxProcessParticipant" logger="CreditCardLogger" />
+		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.MakeResponseParticipant" logger="CreditCardLogger"/>
+		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.SendResponseParticipant" logger="CreditCardLogger"/>
+	</group>-->
+	<!-- CREDIT CARD PARTICIPENTS END -->
+
+	<!-- Temporary Participant -->
+	<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporaryParticipant" logger="Q2Logger"/>
+	<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporarySenderResponse" logger="Q2Logger"/>
+</txnmgr>
