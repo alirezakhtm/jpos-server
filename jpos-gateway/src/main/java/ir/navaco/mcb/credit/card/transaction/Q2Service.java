@@ -22,9 +22,14 @@ public class Q2Service
     {
         try
         {
-            String[] xargs = new String[]{"-r", "-d", new File(deployDir).getAbsolutePath()};
-            q2 = new Q2(xargs);
-            q2.start();
+            if (deployDir != null) {
+                String[] xargs = new String[]{"-r", "-d", new File(deployDir).getAbsolutePath()};
+                q2 = new Q2(xargs);
+                q2.start();
+            }else {
+                q2 = new Q2();
+                q2.start();
+            }
         }
         catch (Exception e)
         {

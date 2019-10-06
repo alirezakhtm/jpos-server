@@ -2,6 +2,7 @@ package ir.navaco.mcb.credit.card.config;
 
 import ir.navaco.mcb.credit.card.logger.JPOSLogger;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -22,7 +23,8 @@ public class HttpConfiguration {
 
     public HttpConfiguration() throws IOException {
         if (HTTP_CALL_URL_M1100 == null){
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("http-configuration.properties");
+//            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("http-configuration.properties");
+            InputStream inputStream = new FileInputStream("http-configuration.properties");
             Properties properties = new Properties();
             properties.load(inputStream);
             logger.info("Fetching data for setting configuration of HTTP started.");

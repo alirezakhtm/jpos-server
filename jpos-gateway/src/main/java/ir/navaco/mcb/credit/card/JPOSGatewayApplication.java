@@ -48,7 +48,8 @@ public class JPOSGatewayApplication {
         Q2ServerConfiguration serverConfiguration = new Q2ServerConfiguration();
         System.out.println(serverConfiguration.getDeployDirectory());
 
-        Q2Service q2Service = new Q2Service(serverConfiguration.getDeployDirectory());
+//        Q2Service q2Service = new Q2Service(serverConfiguration.getDeployDirectory());
+        Q2Service q2Service = new Q2Service(null);
         q2Service.start();
     }
 
