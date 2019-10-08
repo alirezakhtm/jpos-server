@@ -1,0 +1,10 @@
+2019-10-08 11:10:44.359  INFO 18240 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Starting RestServiceTestApplication on GF-35480 with PID 18240 (D:\Projects\code-examples\jpos\jpos-server\rest-service-test\target\classes started by a.khatamidoost in D:\Projects\code-examples\jpos\jpos-server)
+2019-10-08 11:10:44.362  INFO 18240 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : No active profile set, falling back to default profiles: default
+2019-10-08 11:10:45.148  INFO 18240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-10-08 11:10:45.167  INFO 18240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-08 11:10:45.167  INFO 18240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-10-08 11:10:45.296  INFO 18240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-08 11:10:45.297  INFO 18240 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 897 ms
+2019-10-08 11:10:45.493  INFO 18240 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-08 11:10:45.627  INFO 18240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-10-08 11:10:45.630  INFO 18240 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Started RestServiceTestApplication in 1.684 seconds (JVM running for 2.725)

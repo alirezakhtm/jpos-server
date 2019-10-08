@@ -45,8 +45,8 @@ public class JPOSGatewayApplication {
         HandleDB db = new HandleDB();
         db.findAllRoutes();
         */
-        Q2ServerConfiguration serverConfiguration = new Q2ServerConfiguration();
-        System.out.println(serverConfiguration.getDeployDirectory());
+//        Q2ServerConfiguration serverConfiguration = new Q2ServerConfiguration();
+//        System.out.println(serverConfiguration.getDeployDirectory());
 
 //        Q2Service q2Service = new Q2Service(serverConfiguration.getDeployDirectory());
         Q2Service q2Service = new Q2Service(null);

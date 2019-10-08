@@ -1,0 +1,11 @@
+FROM openjdk:8
+CMD ["mkdir", "/root/jpos"]
+CMD ["mkdir", "/deploy"]
+CMD ["mkdir", "/root/jpos/libs"]
+COPY target/jpos-gateway.jar /root/jpos/
+COPY target/libs/*.jar /root/jpos/libs/
+#COPY ../deploy/*.xml /deploy/
+COPY src/main/resources/META-INF/transactionConfig/*.xml /deploy/
+COPY src/main/resources/http-configuration.properties /
+#COPY ../http-configuration.properties /
+ENTRYPOINT ["java", "-jar", "/root/jpos/jpos-gateway.jar"]

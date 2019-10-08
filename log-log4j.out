@@ -1,0 +1,40 @@
+2019-10-07 16:30:05,209 INFO  - Fetching data for setting configuration of HTTP started.
+2019-10-07 16:30:05,210 INFO  - Fetching data for setting configuration finished successfully.
+2019-10-07 16:30:05,262 INFO  - Message converted to the json format.
+2019-10-07 16:30:05,262 INFO  - Message is ::: 
+{
+  "primaryBinaryDesign" : null,
+  "secondaryBinaryDesign" : null,
+  "sentDataToShetabDt" : null,
+  "mac" : null,
+  "isoMsgPack" : "MTEwMOI0xQGI4YAAAAAAAAQAAAAxNjEyMzQ1Njc4OTc0NTYzMjEwMDAwMDAwOTE2MDMyMzEyODA4NTI2MTkwOTE2MDMyMzEyMDAxMTA5MTY1MzEzMjEwMTAxMjEzMTQ0MTA4MDY2MDM3OTkwNjYyODAyMzAwMDAwMDE4Mjg2OTY3Nzc3Nzc3ICAgNzc3Nzc3Nzc3NjAwNDAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID8/Pz8/ID8/Pz8/MDMyUDEzMDA2ODA4NTI2RDAxMDE0MjAxOTA5MTYwMzIzMTIzNjQxMjMxMDAxMTg1NzYxNQ==",
+  "accountNo" : 1234567897456321,
+  "posInfo" : "210101213144",
+  "functionCode" : "REMAIN_REQUEST",
+  "acquireBusinessType" : null,
+  "acquireInstituteCode" : 603799,
+  "senderInstituteCode" : 628023,
+  "cardAcquireNumber" : "   777777777600",
+  "cardAcquireNameLocation" : "                             ????? ?????",
+  "specialExtraData" : null,
+  "receiverInstituteCode" : null,
+  "txacquirePosNumber" : "67777777",
+  "rawTXProcessCode" : "000000",
+  "txreceiveDateTime" : 1568575800000,
+  "txrefRecoverNo" : "000000182869",
+  "txcoding" : null,
+  "txprocessCode" : "PURCHASE",
+  "txid" : null,
+  "txdateTime" : null
+}
+2019-10-07 16:30:05,410 INFO  - HTTP client has been created for connection.
+2019-10-07 16:30:05,428 INFO  - Message as POST method ready to send to the server :: http://localhost:9090/message1100
+2019-10-07 16:30:05,481 INFO  - ======================================
+2019-10-07 16:30:05,482 INFO  - Header of Response ::: Content-Type: application/json;charset=UTF-8
+2019-10-07 16:30:05,482 INFO  - Header of Response ::: Transfer-Encoding: chunked
+2019-10-07 16:30:05,482 INFO  - Header of Response ::: Date: Mon, 07 Oct 2019 13:00:05 GMT
+2019-10-07 16:30:05,482 INFO  - Message has been sent successfully to server.
+2019-10-07 16:30:05,487 INFO  - Response from server has been received.
+2019-10-07 16:30:05,511 INFO  - Response ::: {"primaryBinaryDesign":null,"secondaryBinaryDesign":null,"sentDataToShetabDt":null,"mac":null,"isoMsgPack":null,"accountNo":1234567897456321,"acquireInstituteCode":603799,"senderInstituteCode":628023,"cardAcquireNumber":"   777777777600","responseExtraData":null,"extraAmount":null,"receiverInstituteCode":null,"txrefRecoverNo":"000000182869","rawTXProcessCode":"000000","txacquirePosNumber":"67777777","txprocessCode":"PURCHASE","txcoding":null,"txresponseCode":null,"txapprovalCode":null,"txsettlementDate":null,"txdateTime":null,"txid":null}
+2019-10-07 16:30:05,514 INFO  - Fetching response from jpos space to send it.
+2019-10-07 16:30:05,515 INFO  - Sending message done successfully.

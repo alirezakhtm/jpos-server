@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * @author a.khatamidoost <alireza.khtm@gmail.com>
+ */
 public class Q2ServerConfiguration {
 
     private static String DEPLOY_DIRECTORY = null;
