@@ -2,22 +2,19 @@ package ir.navaco.mcb.credit.card.camel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import ir.navaco.mcb.credit.card.camel.routes.control.JPOSRoute;
 import ir.navaco.mcb.credit.card.camel.routes.control.RouteManager;
 import ir.navaco.mcb.credit.card.config.CamelConfiguration;
 import ir.navaco.mcb.credit.card.database.HandleDB;
-import ir.navaco.mcb.credit.card.database.entity.CamelRoute;
+import ir.navaco.mcb.credit.card.database.entity.JPOSRoute;
 import ir.navaco.mcb.credit.card.logger.JPOSLogger;
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.log4j.BasicConfigurator;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Start camel service
@@ -57,7 +54,7 @@ public class CamelService extends RouteManager {
     }
 
     @Override
-    public void addRoute(JPOSRoute route) {
+    public void addRoute(ir.navaco.mcb.credit.card.camel.routes.control.JPOSRoute route) {
         super.addRoute(route);
         logger.info("New route added to the route repository. [route-id :: " + route.getRouteId() + "]");
         restartCamelService();
@@ -97,21 +94,21 @@ public class CamelService extends RouteManager {
     }
 
     public void startDefault(){
-        List<CamelRoute> camelRoutes = db.findAllRoutes();
+        List<JPOSRoute> JPOSRoutes = db.findAllRoutes();
         List<ir.navaco.mcb.credit.card.camel.dto.JPOSRoute> jposRoutes = new ArrayList<>();
-        camelRoutes.forEach(camelRoute -> {
-            String jsonJPOSRoute = camelRoute.getJsonJposRoute();
+        JPOSRoutes.forEach(JPOSRoute -> {
+            String jsonJPOSRoute = JPOSRoute.getJsonJposRoute();
             jposRoutes.add(gson.fromJson(jsonJPOSRoute, ir.navaco.mcb.credit.card.camel.dto.JPOSRoute.class));
         });
         // todo -- create one class for these classes to convert jposroute dto to jposroute of that
         // todo -- extended from RouteBuilder then add them into the routeBuilderMap
-        List<JPOSRoute> jposRouteList = this.convertToJPOSRoute(jposRoutes);
+        List<ir.navaco.mcb.credit.card.camel.routes.control.JPOSRoute> jposRouteList = this.convertToJPOSRoute(jposRoutes);
         jposRouteList.forEach(jposRoute -> {
             super.addRoute(jposRoute);
         });
     }
 
-    private List<JPOSRoute> convertToJPOSRoute(List<ir.navaco.mcb.credit.card.camel.dto.JPOSRoute> jposRoutes) {
+    private List<ir.navaco.mcb.credit.card.camel.routes.control.JPOSRoute> convertToJPOSRoute(List<ir.navaco.mcb.credit.card.camel.dto.JPOSRoute> jposRoutes) {
         return null;
     }
 }

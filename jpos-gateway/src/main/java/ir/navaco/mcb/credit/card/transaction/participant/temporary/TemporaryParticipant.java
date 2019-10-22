@@ -8,13 +8,11 @@ import ir.navaco.mcb.credit.card.parser.dto.IResponseMessage;
 import ir.navaco.mcb.credit.card.parser.dto.pooya.*;
 import ir.navaco.mcb.credit.card.parser.enums.MessageType;
 import ir.navaco.mcb.credit.card.parser.enums.TxProcessStatusType;
-import ir.navaco.mcb.credit.card.parser.packer.ISO93APooyaPackager;
 import ir.navaco.mcb.credit.card.parser.transformer.MessageConverter;
+import ir.navaco.mcb.credit.card.space.JPOSSpaceHandler;
 import ir.navaco.mcb.credit.card.transaction.config.ContextConstant;
-import ir.navaco.mcb.credit.card.transaction.participant.temporary.http.HttpParser;
-import org.jpos.iso.ISOException;
+import ir.navaco.mcb.credit.card.http.HttpParser;
 import org.jpos.iso.ISOMsg;
-import org.jpos.iso.ISOSource;
 import org.jpos.transaction.Context;
 import org.jpos.transaction.TransactionParticipant;
 
@@ -47,7 +45,7 @@ public class TemporaryParticipant implements TransactionParticipant {
         switch (messageType.getCode()) {
             case 1100:
                 try {
-                    this.putResponseToSpace(
+                    JPOSSpaceHandler.putResponseToSpace(
                             new Message1100(iMessage.getIsoMsg()),
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1100.class,
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1110.class,
@@ -62,7 +60,7 @@ public class TemporaryParticipant implements TransactionParticipant {
                 break;
             case 1200:
                 try {
-                    this.putResponseToSpace(
+                    JPOSSpaceHandler.putResponseToSpace(
                             new Message1200(iMessage.getIsoMsg()),
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1200.class,
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1210.class,
@@ -77,7 +75,7 @@ public class TemporaryParticipant implements TransactionParticipant {
                 break;
             case 1220:
                 try {
-                    this.putResponseToSpace(
+                    JPOSSpaceHandler.putResponseToSpace(
                             new Message1220(iMessage.getIsoMsg()),
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1220.class,
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1230.class,
@@ -92,7 +90,7 @@ public class TemporaryParticipant implements TransactionParticipant {
                 break;
             case 1420:
                 try {
-                    this.putResponseToSpace(
+                    JPOSSpaceHandler.putResponseToSpace(
                             new Message1420(iMessage.getIsoMsg()),
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1420.class,
                             ir.navaco.mcb.credit.card.parser.transformer.dto.Message1430.class,
@@ -123,21 +121,5 @@ public class TemporaryParticipant implements TransactionParticipant {
         return PREPARED | NO_JOIN;
     }
 
-    private <RQP, RQT, RST, RSP> void putResponseToSpace(
-            RQP requestMessage_PooyaObject,
-            Class<RQT> requestTransformerClass,
-            Class<RST> responseTransformerClass,
-            Class<RSP> responsePooyaClass,
-            String url,
-            MessageType inputMessageType,
-            MessageType outputMessageType,
-            Context context) throws Exception {
-        RQT requestTransformerObject = messageConverter.convert(requestMessage_PooyaObject, requestTransformerClass, inputMessageType);
-        RST responseTransformerObject = httpParser.parse(requestTransformerObject, url, responseTransformerClass);
-        RSP responsePooyaObject = messageConverter.convert(responseTransformerObject, responsePooyaClass, outputMessageType);
-        IResponseMessage responseMessage = (IResponseMessage) responsePooyaObject;
-        responseMessage.setTXResponseCode(TxProcessStatusType.TX_SUCCESSFUL);
-        responseMessage.packMessageInto();
-        context.put(ContextConstant.RESPONSE_KEY, responseMessage);
-    }
+
 }

@@ -9,12 +9,12 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "tbl_camel_route", schema = "dbjpos",
+@Table(name = "tbl_route", schema = "dbjpos",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "ID"),
                 @UniqueConstraint(columnNames = "ROUTE_ID")
         })
-public class CamelRoute {
+public class JPOSRoute {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

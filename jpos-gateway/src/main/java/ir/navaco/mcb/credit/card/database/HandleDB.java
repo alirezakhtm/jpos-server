@@ -3,7 +3,7 @@ package ir.navaco.mcb.credit.card.database;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import ir.navaco.mcb.credit.card.database.entity.CamelRoute;
+import ir.navaco.mcb.credit.card.database.entity.JPOSRoute;
 import ir.navaco.mcb.credit.card.database.hibernate.HibernateUtil;
 import ir.navaco.mcb.credit.card.logger.JPOSLogger;
 import org.hibernate.Session;
@@ -28,18 +28,18 @@ public class HandleDB {
         gson = (gson == null) ? new GsonBuilder().create() : gson;
     }
 
-    public List<CamelRoute> findAllRoutes(){
+    public List<JPOSRoute> findAllRoutes(){
         SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         String hql = "FROM CamelRoute C";
         Query query = session.createQuery(hql);
-        List<CamelRoute> camelRoutes = query.list();
+        List<JPOSRoute> JPOSRoutes = query.list();
         session.close();
-        logger.info("Routes has been fetched from database, number of routes is " + camelRoutes.size());
-        camelRoutes.forEach(camelRoute -> {
-            logger.info(String.format(camelRoute.toString()));
+        logger.info("Routes has been fetched from database, number of routes is " + JPOSRoutes.size());
+        JPOSRoutes.forEach(JPOSRoute -> {
+            logger.info(String.format(JPOSRoute.toString()));
         });
-        return camelRoutes;
+        return JPOSRoutes;
     }
 
 }

@@ -11,6 +11,6 @@
         <property name = "hibernate.connection.password"/>
         <property name="hibernate.connection.pool_size">10</property>
         <!-- Mapping -->
-        <mapping class="ir.navaco.mcb.credit.card.database.entity.CamelRoute"/>
+        <mapping class="ir.navaco.mcb.credit.card.database.entity.JPOSRoute"/>
     </session-factory>
 </hibernate-configuration>

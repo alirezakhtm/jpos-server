@@ -44,7 +44,6 @@ public class ParticipantSelector implements GroupSelector,Configurable{
     public String select(long l, Serializable serializable) {
         Context ctx = (Context)serializable;
         IMessage txIsoDto = (IMessage)ctx.get(ContextConstant.REQUEST_DTO_KEY);
-        //return participant group from xml configuration
         switch (txIsoDto.getMTI()){
             case MTI_1100:
             case MTI_1110:

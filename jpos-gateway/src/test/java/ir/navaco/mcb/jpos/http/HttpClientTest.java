@@ -1,7 +1,7 @@
 package ir.navaco.mcb.jpos.http;
 
 import com.google.gson.GsonBuilder;
-import ir.navaco.mcb.credit.card.transaction.participant.temporary.http.HttpParser;
+import ir.navaco.mcb.credit.card.http.HttpParser;
 import ir.navaco.mcb.jpos.camel.User;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;

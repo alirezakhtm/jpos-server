@@ -8,7 +8,6 @@ import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1110;
 import ir.navaco.mcb.credit.card.parser.enums.MessageType;
 import ir.navaco.mcb.credit.card.space.JPOSSpaceHandler;
 import ir.navaco.mcb.credit.card.transaction.config.ContextConstant;
-import org.jpos.iso.ISOMsg;
 import org.jpos.transaction.Context;
 import org.jpos.transaction.TransactionParticipant;
 
@@ -16,20 +15,17 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * The participant to validate 11XX messages type
- *
- * @author sa.gholizadeh <sa.gholizadeh@navaco.ir>
  * @author a.khatamidoost <alireza.khtm@gmail.com>
- */
-public class ValidationParticipant implements TransactionParticipant{
+ * */
+public class AuthorisationParticipant implements TransactionParticipant {
 
-    private HttpConfiguration httpConfiguration;
-    private static final String TAG = "ValidationParticipant";
+    private static final String TAG = "AuthorisationParticipant";
     private JPOSLogger logger = new JPOSLogger(TAG);
+    private HttpConfiguration httpConfiguration;
 
     @Override
-    public int prepare(long l, Serializable serializable) {
-        /*Context context = (Context)serializable;
+    public int prepare(long id, Serializable serializable) {
+        Context context = (Context)serializable;
         IMessage iMessage= (IMessage) context.get(ContextConstant.REQUEST_DTO_KEY);
         MessageType messageType = iMessage.getMTI();
         try {
@@ -50,18 +46,7 @@ public class ValidationParticipant implements TransactionParticipant{
                     context);
         } catch (Exception e) {
             logger.error(e.getMessage());
-        }*/
-
-        return PREPARED|NO_JOIN;
-    }
-
-    @Override
-    public void commit(long l, Serializable serializable) {
-
-    }
-
-    @Override
-    public void abort(long l, Serializable serializable) {
-
+        }
+        return PREPARED | NO_JOIN;
     }
 }

@@ -7,6 +7,7 @@
 
 	<channel class="org.jpos.iso.channel.ASCIIChannel" name="ASCIIChannel" logger="Q2Logger"
 			 packager="ir.navaco.mcb.credit.card.parser.packer.ISO93APooyaPackager" header="ISO51000000">
+		<filter class="org.jpos.iso.filter.MD5Filter" direction="both"/>
 		<property name="timeout" value="7000" /> <!-- seven seconds -->
 		<property name="keep-alive" value="true" />
 	</channel>

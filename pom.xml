@@ -13,5 +13,17 @@
         <module>jpos-common</module>
     </modules>
 
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>alireza khatami doost</name>
+            <organization>NAVACO Information Technology</organization>
+            <url>https://www.linkedin.com/in/alireza-khatami-doost-63b41177/</url>
+            <email>alireza.khtm@gmail.com</email>
+            <roles>
+                <role>Architecture and Senior Developer</role>
+            </roles>
+        </developer>
+    </developers>
 
 </project>

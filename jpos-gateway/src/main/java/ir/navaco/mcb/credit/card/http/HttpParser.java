@@ -1,4 +1,4 @@
-package ir.navaco.mcb.credit.card.transaction.participant.temporary.http;
+package ir.navaco.mcb.credit.card.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;

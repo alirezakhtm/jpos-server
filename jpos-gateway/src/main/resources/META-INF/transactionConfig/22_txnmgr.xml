@@ -12,6 +12,13 @@
 	<property name="debug" value="true" />
 
 	<!-- ============================================= GENERAL PARTICIPANTS ============================================ -->
+
+	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.firewall.FirewallParticipant" logger="Q2Logger">
+		<property name="invalidrequest" value="InvalidParticipant"/>
+	</participant>-->
+
+
+
 	<!-- <1 step> Parse messages -->
 	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParserParticipant" logger="Q2Logger" />
 	<!-- <2 step> Seperate messages -->

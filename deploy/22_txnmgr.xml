@@ -12,6 +12,13 @@
 	<property name="debug" value="true" />
 
 	<!-- ============================================= GENERAL PARTICIPANTS ============================================ -->
+
+	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.firewall.FirewallParticipant" logger="Q2Logger">
+		<property name="invalidrequest" value="InvalidParticipant"/>
+	</participant>-->
+
+
+
 	<!-- <1 step> Parse messages -->
 	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParserParticipant" logger="Q2Logger" />
 	<!-- <2 step> Seperate messages -->
@@ -22,10 +29,9 @@
 		<property name="rev" value="ReversalAdviceParticipant" />
 		<property name="net" value="NetworkManagementParticipant" />
 	</participant>
-	<!-- <3 step> Seperate segment -->
-	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.SegmentSelector" name="SegmentSelector" logger="Q2Logger">
-		<property name="creditCard" value="CreditCardParticipant" />
-	</participant>-->
+
+
+	<!-- ================================== Validation Checking ================================= -->
 
 	<!-- AUTHORISATION REQUEST 1100/1110 -->
 	<group name="AuthorisationRequestParticipant">
@@ -54,26 +60,42 @@
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.network.SendResponseParticipant" logger="Q2Logger" />
 	</group>
 
-	<!-- RECONCILIATION REQUEST 1500/1520/1510/1530/1502/1522/1512/1532 (NOT SUPPORTED)-->
+	<!-- ===================================== Dispatcher Request ====================================== -->
 
-	<!-- ============================================== SEGMENT PARTICIPANTS ============================================= -->
+	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParticipantDispatcher" name="ParticipantDispatcher" logger="Q2Logger">
+		<property name="auth" value="AuthorisationParticipant"/>
+		<property name="finreq" value="FinancialRequestParticipant"/>
+		<property name="finadv" value="FinancialAdviceParticipant"/>
+		<property name="rev" value="ReversalParticipant"/>
+		<property name="net" value="NetworkParticipant"/>
+	</participant>
 
-	<!-- LOAN PARTICIPENTS BEGIN -->
-	<!-- LOAN PARTICIPENTS END -->
+	<group name="AuthorisationParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.authorisation.AuthorisationParticipant" logger="Q2Logger"/>
+	</group>
 
-	<!-- CREDIT CARD PARTICIPENTS BEGIN -->
-	<!--<group name="CreditCardParticipant">
-		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.ResourcePrepareParticipant" logger="CreditCardLogger" />
-		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.SaveIsoMsgParticipant" logger="CreditCardLogger" />
-		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.ValidationParticipant" logger="CreditCardLogger" />
-		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.SaveCardTxParticipant" logger="CreditCardLogger" />
-		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.TxProcessParticipant" logger="CreditCardLogger" />
-		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.MakeResponseParticipant" logger="CreditCardLogger"/>
-		<participant class="ir.navaco.mcb.credit.card.morabehe.participants.SendResponseParticipant" logger="CreditCardLogger"/>
-	</group>-->
-	<!-- CREDIT CARD PARTICIPENTS END -->
+	<group name="FinancialRequestParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.financial.request.FinancialRequestParticipant" logger="Q2Logger"/>
+	</group>
+
+	<group name="FinancialAdviceParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.financial.advice.FinancialAdviceParticipant" logger="Q2Logger"/>
+	</group>
+
+	<group name="ReversalParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.reversal.ReversalParticipant" logger="Q2Logger"/>
+	</group>
+
+	<group name="NetworkParticipant">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.network.SendResponseParticipant" logger="Q2Logger"/>
+	</group>
+
+
+	<!-- ======================= END ========================== -->
+	<participant class="ir.navaco.mcb.credit.card.transaction.participant.SenderResponseParticipant" logger="Q2Logger"/>
+
 
 	<!-- Temporary Participant -->
-	<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporaryParticipant" logger="Q2Logger"/>
-	<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporarySenderResponse" logger="Q2Logger"/>
+	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporaryParticipant" logger="Q2Logger"/>-->
+	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporarySenderResponse" logger="Q2Logger"/>-->
 </txnmgr>

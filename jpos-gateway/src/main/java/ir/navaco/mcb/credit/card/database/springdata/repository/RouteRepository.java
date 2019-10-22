@@ -1,6 +1,6 @@
 package ir.navaco.mcb.credit.card.database.springdata.repository;
 
-import ir.navaco.mcb.credit.card.database.entity.CamelRoute;
+import ir.navaco.mcb.credit.card.database.entity.JPOSRoute;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +13,8 @@ import java.util.List;
  * */
 
 @Component
-public interface RouteRepository extends CrudRepository<CamelRoute, Long> {
-    List<CamelRoute> findAll();
-    CamelRoute findById(long id);
-    List<CamelRoute> findAllByRouteId(String routeId);
+public interface RouteRepository extends CrudRepository<JPOSRoute, Long> {
+    List<JPOSRoute> findAll();
+    JPOSRoute findById(long id);
+    List<JPOSRoute> findAllByRouteId(String routeId);
 }
