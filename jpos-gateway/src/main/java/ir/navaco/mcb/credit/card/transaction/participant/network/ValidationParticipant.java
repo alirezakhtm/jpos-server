@@ -6,7 +6,7 @@ import org.jpos.transaction.TransactionParticipant;
 import java.io.Serializable;
 
 /**
- * The participant to validate 1200,1210 messages type
+ * The participant to validate 1804,1814 messages type
  *
  * @author sa.gholizadeh <sa.gholizadeh@navaco.ir>
  * @author a.khatamidoost <alireza.khtm@gmail.com>

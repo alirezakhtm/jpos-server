@@ -13,10 +13,6 @@
 
 	<!-- ============================================= GENERAL PARTICIPANTS ============================================ -->
 
-	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.firewall.FirewallParticipant" logger="Q2Logger">
-		<property name="invalidrequest" value="InvalidParticipant"/>
-	</participant>-->
-
 
 
 	<!-- <1 step> Parse messages -->
@@ -90,12 +86,9 @@
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.network.SendResponseParticipant" logger="Q2Logger"/>
 	</group>
 
-
 	<!-- ======================= END ========================== -->
 	<participant class="ir.navaco.mcb.credit.card.transaction.participant.SenderResponseParticipant" logger="Q2Logger"/>
 
-
-	<!-- Temporary Participant -->
-	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporaryParticipant" logger="Q2Logger"/>-->
-	<!--<participant class="ir.navaco.mcb.credit.card.transaction.participant.temporary.TemporarySenderResponse" logger="Q2Logger"/>-->
+	<!-- This participate used to send response for aborted request. -->
+	<participant class="ir.navaco.mcb.credit.card.transaction.participant.SendResponseAbortedRequest" logger="Q2Logger"/>
 </txnmgr>

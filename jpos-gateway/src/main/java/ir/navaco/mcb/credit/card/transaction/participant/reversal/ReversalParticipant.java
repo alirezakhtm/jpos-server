@@ -47,6 +47,6 @@ public class ReversalParticipant implements TransactionParticipant {
             logger.error(e.getMessage());
         }
 
-        return PREPARED | NO_JOIN;
+        return PREPARED;
     }
 }

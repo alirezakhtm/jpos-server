@@ -44,6 +44,6 @@ public class ParticipantDispatcher implements GroupSelector,Configurable {
 
     @Override
     public int prepare(long id, Serializable context) {
-        return PREPARED | ABORTED | NO_JOIN;
+        return PREPARED;
     }
 }

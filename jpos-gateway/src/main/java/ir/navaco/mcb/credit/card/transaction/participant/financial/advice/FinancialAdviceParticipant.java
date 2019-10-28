@@ -47,6 +47,6 @@ public class FinancialAdviceParticipant implements TransactionParticipant {
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
-        return PREPARED | NO_JOIN;
+        return PREPARED;
     }
 }

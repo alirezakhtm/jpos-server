@@ -4,14 +4,11 @@ package ir.navaco.mcb.credit.card.transaction.participant.financial.request;
 import ir.navaco.mcb.credit.card.config.HttpConfiguration;
 import ir.navaco.mcb.credit.card.logger.JPOSLogger;
 import ir.navaco.mcb.credit.card.parser.dto.IMessage;
-import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1100;
-import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1110;
 import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1200;
 import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1210;
 import ir.navaco.mcb.credit.card.parser.enums.MessageType;
 import ir.navaco.mcb.credit.card.space.JPOSSpaceHandler;
 import ir.navaco.mcb.credit.card.transaction.config.ContextConstant;
-import org.hibernate.hql.internal.ast.QueryTranslatorImpl;
 import org.jpos.transaction.Context;
 import org.jpos.transaction.TransactionParticipant;
 
@@ -23,7 +20,7 @@ import java.io.Serializable;
  * */
 public class FinancialRequestParticipant implements TransactionParticipant {
 
-    private static final String TAG = "FinancialRequestPartici";
+    private static final String TAG = "FinancialRequestParticipant";
     private JPOSLogger logger = new JPOSLogger(TAG);
     private HttpConfiguration httpConfiguration;
 
@@ -51,6 +48,6 @@ public class FinancialRequestParticipant implements TransactionParticipant {
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
-        return PREPARED | NO_JOIN;
+        return PREPARED;
     }
 }

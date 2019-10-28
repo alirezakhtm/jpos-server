@@ -1,6 +1,9 @@
 package ir.navaco.mcb.credit.card.transaction.participant.reversal;
 
+import ir.navaco.mcb.credit.card.parser.dto.IMessage;
+import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1420;
 import ir.navaco.mcb.credit.card.transaction.config.ContextConstant;
+import ir.navaco.mcb.credit.card.transaction.participant.firewall.FirewallParticipant;
 import org.jpos.iso.ISOMsg;
 import org.jpos.transaction.Context;
 import org.jpos.transaction.TransactionParticipant;
@@ -13,23 +16,26 @@ import java.io.Serializable;
  * @author sa.gholizadeh <sa.gholizadeh@navaco.ir>
  * @author a.khatamidoost <alireza.khtm@gmail.com>
  */
-public class ValidationParticipant implements TransactionParticipant{
-    @Override
-    public int prepare(long l, Serializable serializable) {
-        Context ctx = (Context)serializable;
-        //IMessage isoMsgDto = (IMessage) ctx.get(ContextConstant.REQUEST_DTO_KEY);
-        //ISOMsg isoMsg = (ISOMsg)ctx.get(ContextConstant.REQUEST_KEY);
+public class ValidationParticipant extends FirewallParticipant {
 
-        return PREPARED;
+    public ValidationParticipant(){
+        this.TAG = "ValidationParticipant - 1420";
+        this.MTI = 1420;
+        this.init();
     }
 
     @Override
-    public void commit(long l, Serializable serializable) {
+    public int prepare(long id, Serializable serializable) {
+        Context context = (Context) serializable;
+        IMessage iMessage = (IMessage) context.get(ContextConstant.REQUEST_DTO_KEY);
 
-    }
+        try{
+            Message1420 message1420 = new Message1420(iMessage.getIsoMsg());
+            this.processCodeType = message1420.getTXProcessCode();
+        }catch (Exception e){
+            this.logger.error(e.getMessage());
+        }
 
-    @Override
-    public void abort(long l, Serializable serializable) {
-
+        return super.prepare(id, serializable);
     }
 }

@@ -12,5 +12,6 @@
         <property name="hibernate.connection.pool_size">10</property>
         <!-- Mapping -->
         <mapping class="ir.navaco.mcb.credit.card.database.entity.JPOSRoute"/>
+        <mapping class="ir.navaco.mcb.credit.card.database.entity.MessagePolicy"/>
     </session-factory>
 </hibernate-configuration>
