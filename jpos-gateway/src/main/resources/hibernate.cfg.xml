@@ -6,11 +6,11 @@
         <property name = "hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name = "hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <!-- Assume test is the database name -->
-        <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/dbjpos</property>
-        <!--<property name = "hibernate.connection.url">jdbc:mysql://172.19.0.4:3306/dbjpos</property>-->
+        <!--<property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/dbjpos</property>-->
+        <property name = "hibernate.connection.url">jdbc:mysql://172.19.0.4:3306/dbjpos</property>
         <property name = "hibernate.connection.username">root</property>
-        <property name = "hibernate.connection.password"/>
-        <!--<property name = "hibernate.connection.password">admin</property>-->
+        <!--<property name = "hibernate.connection.password"/>-->
+        <property name = "hibernate.connection.password">admin</property>
         <property name="hibernate.connection.pool_size">10</property>
         <!-- Mapping -->
         <mapping class="ir.navaco.mcb.credit.card.database.entity.JPOSRoute"/>
