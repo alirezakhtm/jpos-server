@@ -36,6 +36,8 @@ public class ParticipantDispatcher implements GroupSelector,Configurable {
                 return configuration.get("finadv", "");
             case MTI_1420:
                 return configuration.get("rev", "");
+            case MTI_1604:
+                return configuration.get("auth2", "");
             case MTI_1804:
                 return configuration.get("net", "");
         }

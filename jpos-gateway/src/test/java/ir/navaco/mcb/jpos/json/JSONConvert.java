@@ -2,6 +2,7 @@ package ir.navaco.mcb.jpos.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
@@ -48,6 +49,18 @@ class Test03 extends Test02{
     }
 }
 
+class IntegerList{
+    private List<Integer> lst;
+
+    public List<Integer> getLst() {
+        return lst;
+    }
+
+    public void setLst(List<Integer> lst) {
+        this.lst = lst;
+    }
+}
+
 public class JSONConvert {
 
     public static void main(String[] args) throws JsonProcessingException {
@@ -66,6 +79,15 @@ public class JSONConvert {
         Test03 test03 = new Test03();
         json = mapper.writeValueAsString(test03);
         System.out.println("jackson ::: " + json);
+
+        IntegerList integerList = new IntegerList();
+        List<Integer> lst = new ArrayList<>();
+        lst.add(1);
+        lst.add(2);
+        lst.add(3);
+        lst.add(4);
+        integerList.setLst(lst);
+        System.out.println(new GsonBuilder().create().toJson(integerList, IntegerList.class));
     }
 
 }

@@ -20,6 +20,7 @@ public class HttpConfiguration {
     private static String HTTP_CALL_URL_M1220 = null;
     private static String HTTP_CALL_URL_M1420 = null;
     private static String HTTP_CALL_URL_M1804 = null;
+    private static String HTTP_CALL_URL_M1604 = null;
 
     public HttpConfiguration() throws IOException {
         if (HTTP_CALL_URL_M1100 == null){
@@ -33,6 +34,7 @@ public class HttpConfiguration {
             HTTP_CALL_URL_M1220 = properties.getProperty("http.call.url.m1220");
             HTTP_CALL_URL_M1420 = properties.getProperty("http.call.url.m1420");
             HTTP_CALL_URL_M1804 = properties.getProperty("http.call.url.m1804");
+            HTTP_CALL_URL_M1604 = properties.getProperty("http.call.url.m1604");
             logger.info("Fetching data for setting configuration finished successfully.");
         }
     }
@@ -55,5 +57,9 @@ public class HttpConfiguration {
 
     public String getHttpCallUrlM1804() {
         return HTTP_CALL_URL_M1804;
+    }
+
+    public String getHttpCallUrlM1604(){
+        return HTTP_CALL_URL_M1604;
     }
 }

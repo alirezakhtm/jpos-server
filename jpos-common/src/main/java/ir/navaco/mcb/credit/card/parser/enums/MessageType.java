@@ -42,13 +42,21 @@ public enum MessageType {
      */
     MTI_1430(7, 1430, MessageType.messageType1430),
     /**
+     * درخواست تاییدیه و بررسی
+     */
+    MTI_1604(8, 1604, MessageType.messageType1604),
+    /**
+     * پاسخ به درخواست تاییدیه و بررسی
+     */
+    MTI_1614(9, 1614, MessageType.messageType1614),
+    /**
      * تراکنش مدیریت شبکه
      */
-    MTI_1804(8, 1804, MessageType.messageType1804),
+    MTI_1804(10, 1804, MessageType.messageType1804),
     /**
      * پاسخ تراکنش مدیریت شبکه
      */
-    MTI_1814(9, 1814, MessageType.messageType1814);
+    MTI_1814(11, 1814, MessageType.messageType1814);
 
 
     MessageType(Integer id, Integer code, String title) {
@@ -112,6 +120,8 @@ public enum MessageType {
     private static final String messageType1230 = "CC.MessageType.messageType1230";
     private static final String messageType1420 = "CC.MessageType.messageType1420";
     private static final String messageType1430 = "CC.MessageType.messageType1430";
+    private static final String messageType1604 = "CC.MessageType.messageType1604";
+    private static final String messageType1614 = "CC.MessageType.messageType1614";
     private static final String messageType1804 = "CC.MessageType.messageType1804";
     private static final String messageType1814 = "CC.MessageType.messageType1814";
 }

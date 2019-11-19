@@ -23,7 +23,7 @@ public class SendResponseParticipant implements TransactionParticipant {
 
     @Override
     public int prepare(long l, Serializable serializable) {
-        Context ctx = (Context)serializable;
+        /*Context ctx = (Context)serializable;
         ISOMsg isoMsg = (ISOMsg)ctx.get(ContextConstant.REQUEST_KEY);
         ISOMsg isoRespMsg = (ISOMsg) isoMsg.clone();
         try {
@@ -36,7 +36,8 @@ public class SendResponseParticipant implements TransactionParticipant {
         } catch (Exception e) {
             e.printStackTrace();
             return ABORTED;
-        }
+        }*/
+        return PREPARED;
     }
 
     private void sendMessage(Context context){

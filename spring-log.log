@@ -1,10 +1,45 @@
-2019-10-08 11:10:44.359  INFO 18240 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Starting RestServiceTestApplication on GF-35480 with PID 18240 (D:\Projects\code-examples\jpos\jpos-server\rest-service-test\target\classes started by a.khatamidoost in D:\Projects\code-examples\jpos\jpos-server)
-2019-10-08 11:10:44.362  INFO 18240 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : No active profile set, falling back to default profiles: default
-2019-10-08 11:10:45.148  INFO 18240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
-2019-10-08 11:10:45.167  INFO 18240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-10-08 11:10:45.167  INFO 18240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
-2019-10-08 11:10:45.296  INFO 18240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-10-08 11:10:45.297  INFO 18240 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 897 ms
-2019-10-08 11:10:45.493  INFO 18240 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-10-08 11:10:45.627  INFO 18240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
-2019-10-08 11:10:45.630  INFO 18240 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Started RestServiceTestApplication in 1.684 seconds (JVM running for 2.725)
+2019-11-18 15:42:04.858  INFO 23992 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-18 15:42:04.870  INFO 23992 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-18 15:42:04.898  INFO 23992 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 27 ms
+2019-11-18 15:42:05.059  INFO 23992 --- [http-nio-9090-exec-1] TestController                           : Message1100 received.
+2019-11-18 15:42:33.652  INFO 23992 --- [http-nio-9090-exec-2] TestController                           : Message1100 received.
+2019-11-18 15:42:34.313  INFO 23992 --- [http-nio-9090-exec-3] TestController                           : Message1100 received.
+2019-11-18 15:42:34.634  INFO 23992 --- [http-nio-9090-exec-4] TestController                           : Message1100 received.
+2019-11-18 15:55:31.829  INFO 17080 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Starting RestServiceTestApplication on GF-35480 with PID 17080 (D:\Projects\code-examples\jpos\jpos-server\rest-service-test\target\classes started by a.khatamidoost in D:\Projects\code-examples\jpos\jpos-server)
+2019-11-18 15:55:31.832  INFO 17080 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : No active profile set, falling back to default profiles: default
+2019-11-18 15:55:32.620  INFO 17080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-11-18 15:55:32.637  INFO 17080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-18 15:55:32.637  INFO 17080 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-11-18 15:55:32.763  INFO 17080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-18 15:55:32.763  INFO 17080 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 889 ms
+2019-11-18 15:55:32.953  INFO 17080 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-18 15:55:33.073  INFO 17080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-11-18 15:55:33.076  INFO 17080 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Started RestServiceTestApplication in 1.662 seconds (JVM running for 2.522)
+2019-11-18 15:57:17.533  INFO 17080 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-18 15:57:17.534  INFO 17080 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-18 15:57:17.538  INFO 17080 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-11-18 15:57:17.614  INFO 17080 --- [http-nio-9090-exec-1] TestController                           : Message1100 received.
+2019-11-18 15:59:56.678  INFO 17080 --- [http-nio-9090-exec-3] TestController                           : Message1100 received.
+2019-11-18 16:00:22.021  INFO 17080 --- [http-nio-9090-exec-4] TestController                           : Message1100 received.
+2019-11-18 16:05:25.660  INFO 23332 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Starting RestServiceTestApplication on GF-35480 with PID 23332 (D:\Projects\code-examples\jpos\jpos-server\rest-service-test\target\classes started by a.khatamidoost in D:\Projects\code-examples\jpos\jpos-server)
+2019-11-18 16:05:25.664  INFO 23332 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : No active profile set, falling back to default profiles: default
+2019-11-18 16:05:26.426  INFO 23332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-11-18 16:05:26.443  INFO 23332 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-18 16:05:26.444  INFO 23332 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-11-18 16:05:26.563  INFO 23332 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-18 16:05:26.564  INFO 23332 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 855 ms
+2019-11-18 16:05:26.714  INFO 23332 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-18 16:05:26.831  INFO 23332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-11-18 16:05:26.833  INFO 23332 --- [main] i.n.m.j.t.r.RestServiceTestApplication   : Started RestServiceTestApplication in 1.524 seconds (JVM running for 2.257)
+2019-11-18 16:16:40.686  INFO 23332 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-18 16:16:40.687  INFO 23332 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-18 16:16:40.691  INFO 23332 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-11-18 16:16:40.760  INFO 23332 --- [http-nio-9090-exec-1] TestController                           : Message1100 received.
+2019-11-18 16:18:03.905  INFO 23332 --- [http-nio-9090-exec-3] TestController                           : Message1100 received.
+2019-11-18 16:18:20.184  INFO 23332 --- [http-nio-9090-exec-4] TestController                           : Message1100 received.
+2019-11-18 16:24:28.646  INFO 23332 --- [http-nio-9090-exec-7] TestController                           : Message1100 received.
+2019-11-18 16:24:58.161  INFO 23332 --- [http-nio-9090-exec-8] TestController                           : Message1100 received.
+2019-11-18 16:25:08.019  INFO 23332 --- [http-nio-9090-exec-9] TestController                           : Message1100 received.
+2019-11-18 16:27:40.396  INFO 23332 --- [http-nio-9090-exec-3] TestController                           : Message1100 received.
+2019-11-18 16:29:17.182  INFO 23332 --- [http-nio-9090-exec-5] TestController                           : Message1100 received.
+2019-11-18 16:31:14.650  INFO 23332 --- [http-nio-9090-exec-7] TestController                           : Message1100 received.

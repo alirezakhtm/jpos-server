@@ -1,14 +1,12 @@
 package ir.navaco.mcb.credit.card.parser.transformer;
 
-import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1100;
-import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1200;
-import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1220;
-import ir.navaco.mcb.credit.card.parser.dto.pooya.Message1420;
+import ir.navaco.mcb.credit.card.parser.dto.pooya.*;
 import ir.navaco.mcb.credit.card.parser.enums.MessageType;
 import ir.navaco.mcb.credit.card.parser.transformer.dto.Message1110;
 import ir.navaco.mcb.credit.card.parser.transformer.dto.Message1210;
 import ir.navaco.mcb.credit.card.parser.transformer.dto.Message1230;
 import ir.navaco.mcb.credit.card.parser.transformer.dto.Message1430;
+import ir.navaco.mcb.credit.card.parser.transformer.dto.Message1614;
 import org.jpos.iso.ISOException;
 import org.jpos.iso.ISOMsg;
 
@@ -158,36 +156,60 @@ public class MessageConverter {
 
                     return (P) message1420_target;
                 } else return null;
+            case MTI_1604:
+                if (pClass.equals(ir.navaco.mcb.credit.card.parser.transformer.dto.Message1604.class)) {
+                    Message1604 message1604 = (Message1604) messageInput;
+                    ir.navaco.mcb.credit.card.parser.transformer.dto.Message1604 message1604_target =
+                            new ir.navaco.mcb.credit.card.parser.transformer.dto.Message1604();
+                    message1604_target.setAccountNo(message1604.getAccountNo());
+                    message1604_target.setAcquireBusinessType(message1604.getAcquireBusinessType());
+                    message1604_target.setAcquireInstituteCode(message1604.getAcquireInstituteCode());
+                    message1604_target.setCardAcquireNameLocation(message1604.getCardAcquireNameLocation());
+                    message1604_target.setCardAcquireNumber(message1604.getCardAcquireNumber());
+                    message1604_target.setFunctionCode(message1604.getFunctionCode());
+                    message1604_target.setPosInfo(message1604.getPosInfo());
+                    message1604_target.setRawTXProcessCode(message1604.getRawTXProcessCode());
+                    message1604_target.setReceiverInstituteCode(message1604.getReceiverInstituteCode());
+                    message1604_target.setSenderInstituteCode(message1604.getSenderInstituteCode());
+                    message1604_target.setSpecialExtraData(message1604.getSpecialExtraData());
+                    message1604_target.setTXAcquirePosNumber(message1604.getTXAcquirePosNumber());
+                    message1604_target.setTXCoding(message1604.getTXCoding());
+                    message1604_target.setTXProcessCode(message1604.getTXProcessCode());
+                    message1604_target.setTXReceiveDateTime(message1604.getTXReceiveDateTime());
+                    message1604_target.setTXRefRecoverNo(message1604.getTXRefRecoverNo());
+                    message1604_target.setIsoMsgPack(message1604.getIsoMsg().pack());
+                    return (P) message1604_target;
+                } else return null;
                 // convert all transformer dto to pooya dto
             case MTI_1110:
                 if (pClass.equals(ir.navaco.mcb.credit.card.parser.dto.pooya.Message1110.class)) {
-                    Message1110 message1110_trasformer = (Message1110) messageInput;
+                    Message1110 message1110_transformer = (Message1110) messageInput;
 
                     ir.navaco.mcb.credit.card.parser.dto.pooya.Message1110 message1110_pooya =
                             new ir.navaco.mcb.credit.card.parser.dto.pooya.Message1110();
 
-                    message1110_pooya.setPrimaryBinaryDesign(message1110_trasformer.getPrimaryBinaryDesign());
-                    message1110_pooya.setSecondaryBinaryDesign(message1110_trasformer.getSecondaryBinaryDesign());
-                    message1110_pooya.setSentDataToShetabDt(message1110_trasformer.getSentDataToShetabDt());
-                    message1110_pooya.setTXId(message1110_trasformer.getTXId());
-                    message1110_pooya.setTXDateTime(message1110_trasformer.getTXDateTime());
-                    message1110_pooya.setMac(message1110_trasformer.getMac());
+                    message1110_pooya.setPrimaryBinaryDesign(message1110_transformer.getPrimaryBinaryDesign());
+                    message1110_pooya.setSecondaryBinaryDesign(message1110_transformer.getSecondaryBinaryDesign());
+                    message1110_pooya.setSentDataToShetabDt(message1110_transformer.getSentDataToShetabDt());
+                    message1110_pooya.setTXId(message1110_transformer.getTXId());
+                    message1110_pooya.setTXDateTime(message1110_transformer.getTXDateTime());
+                    message1110_pooya.setMac(message1110_transformer.getMac());
 
-                    message1110_pooya.setAccountNo(message1110_trasformer.getAccountNo());
-                    message1110_pooya.setTXProcessCode(message1110_trasformer.getTXProcessCode());
-                    message1110_pooya.setRawTXProcessCode(message1110_trasformer.getRawTXProcessCode());
-                    message1110_pooya.setTXSettlementDate(message1110_trasformer.getTXSettlementDate());
-                    message1110_pooya.setAcquireInstituteCode(message1110_trasformer.getAcquireInstituteCode());
-                    message1110_pooya.setSenderInstituteCode(message1110_trasformer.getSenderInstituteCode());
-                    message1110_pooya.setTXRefRecoverNo(message1110_trasformer.getTXRefRecoverNo());
-                    message1110_pooya.setTXApprovalCode(message1110_trasformer.getTXApprovalCode());
-                    message1110_pooya.setTXResponseCode(message1110_trasformer.getTXResponseCode());
-                    message1110_pooya.setTXAcquirePosNumber(message1110_trasformer.getTXAcquirePosNumber());
-                    message1110_pooya.setCardAcquireNumber(message1110_trasformer.getCardAcquireNumber());
-                    message1110_pooya.setResponseExtraData(message1110_trasformer.getResponseExtraData());
-                    message1110_pooya.setExtraAmount(message1110_trasformer.getExtraAmount());
-                    message1110_pooya.setTXCoding(message1110_trasformer.getTXCoding());
-                    message1110_pooya.setReceiverInstituteCode(message1110_trasformer.getReceiverInstituteCode());
+                    message1110_pooya.setAccountNo(message1110_transformer.getAccountNo());
+                    message1110_pooya.setTXProcessCode(message1110_transformer.getTXProcessCode());
+                    message1110_pooya.setRawTXProcessCode(message1110_transformer.getRawTXProcessCode());
+                    message1110_pooya.setTXSettlementDate(message1110_transformer.getTXSettlementDate());
+                    message1110_pooya.setAcquireInstituteCode(message1110_transformer.getAcquireInstituteCode());
+                    message1110_pooya.setSenderInstituteCode(message1110_transformer.getSenderInstituteCode());
+                    message1110_pooya.setTXRefRecoverNo(message1110_transformer.getTXRefRecoverNo());
+                    message1110_pooya.setTXApprovalCode(message1110_transformer.getTXApprovalCode());
+                    message1110_pooya.setTXResponseCode(message1110_transformer.getTXResponseCode());
+                    message1110_pooya.setTXAcquirePosNumber(message1110_transformer.getTXAcquirePosNumber());
+                    message1110_pooya.setCardAcquireNumber(message1110_transformer.getCardAcquireNumber());
+                    message1110_pooya.setResponseExtraData(message1110_transformer.getResponseExtraData());
+                    message1110_pooya.setExtraAmount(message1110_transformer.getExtraAmount());
+                    message1110_pooya.setTXCoding(message1110_transformer.getTXCoding());
+                    message1110_pooya.setReceiverInstituteCode(message1110_transformer.getReceiverInstituteCode());
 
                     return (P) message1110_pooya;
 
@@ -313,6 +335,39 @@ public class MessageConverter {
                     message1430_pooya.setReceiverInstituteCode(message1430_transformer.getReceiverInstituteCode());
                     message1430_pooya.setAccountIdentification(message1430_transformer.getAccountIdentification());
                     return (P) message1430_pooya;
+                } else return null;
+            case MTI_1614:
+                if (pClass.equals(ir.navaco.mcb.credit.card.parser.dto.pooya.Message1614.class)) {
+                    Message1614 message1614_transformer = (Message1614) messageInput;
+
+                    ir.navaco.mcb.credit.card.parser.dto.pooya.Message1614 message1614_pooya =
+                            new ir.navaco.mcb.credit.card.parser.dto.pooya.Message1614();
+
+                    message1614_pooya.setPrimaryBinaryDesign(message1614_transformer.getPrimaryBinaryDesign());
+                    message1614_pooya.setSecondaryBinaryDesign(message1614_transformer.getSecondaryBinaryDesign());
+                    message1614_pooya.setSentDataToShetabDt(message1614_transformer.getSentDataToShetabDt());
+                    message1614_pooya.setTXId(message1614_transformer.getTXId());
+                    message1614_pooya.setTXDateTime(message1614_transformer.getTXDateTime());
+                    message1614_pooya.setMac(message1614_transformer.getMac());
+
+                    message1614_pooya.setAccountNo(message1614_transformer.getAccountNo());
+                    message1614_pooya.setTXProcessCode(message1614_transformer.getTXProcessCode());
+                    message1614_pooya.setRawTXProcessCode(message1614_transformer.getRawTXProcessCode());
+                    message1614_pooya.setTXSettlementDate(message1614_transformer.getTXSettlementDate());
+                    message1614_pooya.setAcquireInstituteCode(message1614_transformer.getAcquireInstituteCode());
+                    message1614_pooya.setSenderInstituteCode(message1614_transformer.getSenderInstituteCode());
+                    message1614_pooya.setTXRefRecoverNo(message1614_transformer.getTXRefRecoverNo());
+                    message1614_pooya.setTXApprovalCode(message1614_transformer.getTXApprovalCode());
+                    message1614_pooya.setTXResponseCode(message1614_transformer.getTXResponseCode());
+                    message1614_pooya.setTXAcquirePosNumber(message1614_transformer.getTXAcquirePosNumber());
+                    message1614_pooya.setCardAcquireNumber(message1614_transformer.getCardAcquireNumber());
+                    message1614_pooya.setResponseExtraData(message1614_transformer.getResponseExtraData());
+                    message1614_pooya.setExtraAmount(message1614_transformer.getExtraAmount());
+                    message1614_pooya.setTXCoding(message1614_transformer.getTXCoding());
+                    message1614_pooya.setReceiverInstituteCode(message1614_transformer.getReceiverInstituteCode());
+
+                    return (P) message1614_transformer;
+
                 } else return null;
             default:
                 return null;

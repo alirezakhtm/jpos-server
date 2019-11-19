@@ -19,38 +19,44 @@
 	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParserParticipant" logger="Q2Logger" />
 	<!-- <2 step> Seperate messages -->
 	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParticipantSelector" name="ParticipantSelector" logger="Q2Logger">
-		<property name="auth" value="AuthorisationRequestParticipant" />
-		<property name="finreq" value="FinancialRequestParticipant" />
-		<property name="finadv" value="FinancialAdviceParticipant" />
-		<property name="rev" value="ReversalAdviceParticipant" />
-		<property name="net" value="NetworkManagementParticipant" />
+		<property name="auth" value="AuthorisationRequestParticipantPolicies" />
+		<property name="auth2" value="AuthorisationRequestParticipant2Policies" />
+		<property name="finreq" value="FinancialRequestParticipantPolicies" />
+		<property name="finadv" value="FinancialAdviceParticipantPolicies" />
+		<property name="rev" value="ReversalAdviceParticipantPolicies" />
+		<property name="net" value="NetworkManagementParticipantPolicies" />
 	</participant>
 
 
 	<!-- ================================== Validation Checking ================================= -->
 
 	<!-- AUTHORISATION REQUEST 1100/1110 -->
-	<group name="AuthorisationRequestParticipant">
+	<group name="AuthorisationRequestParticipantPolicies">
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.authorisation.ValidationParticipant" logger="Q2Logger" />
 	</group>
 
+	<!-- AUTHORISATION REQUEST 1604/1614 -->
+	<group name="AuthorisationRequestParticipant2Policies">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.authorisation.ValidationParticipant2" logger="Q2Logger"/>
+	</group>
+
 	<!-- FINANCIAL TRANSACTION REQUEST 1200/1210 -->
-	<group name="FinancialRequestParticipant">
+	<group name="FinancialRequestParticipantPolicies">
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.financial.request.ValidationParticipant" logger="Q2Logger" />
 	</group>
 
 	<!-- FINANCIAL TRANSACTION ADVICE 1220/1230 -->
-	<group name="FinancialAdviceParticipant">
+	<group name="FinancialAdviceParticipantPolicies">
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.financial.advice.ValidationParticipant" logger="Q2Logger" />
 	</group>
 
 	<!-- REVERSAL ADVICE 1420/1430 -->
-	<group name="ReversalAdviceParticipant">
+	<group name="ReversalAdviceParticipantPolicies">
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.reversal.ValidationParticipant" logger="Q2Logger" />
 	</group>
 
 	<!-- NETWORK MANAGEMENT 1804/1824/1814/1834 (NOT SUPPORTED)-->
-	<group name="NetworkManagementParticipant">
+	<group name="NetworkManagementParticipantPolicies">
 		<!--<participant class="org.jpos.demo.transaction.Echo" logger="Q2Logger" realm="prepare-echo" />-->
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.network.ValidationParticipant" logger="Q2Logger" />
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.network.SendResponseParticipant" logger="Q2Logger" />
@@ -60,7 +66,8 @@
 
 	<participant class="ir.navaco.mcb.credit.card.transaction.participant.ParticipantDispatcher" name="ParticipantDispatcher" logger="Q2Logger">
 		<property name="auth" value="AuthorisationParticipant"/>
-		<property name="finreq" value="FinancialRequestParticipant"/>
+		<property name="auth2" value="AuthorisationParticipant2"/>
+		<property name="finreq" value="FinancialParticipant"/>
 		<property name="finadv" value="FinancialAdviceParticipant"/>
 		<property name="rev" value="ReversalParticipant"/>
 		<property name="net" value="NetworkParticipant"/>
@@ -70,7 +77,11 @@
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.authorisation.AuthorisationParticipant" logger="Q2Logger"/>
 	</group>
 
-	<group name="FinancialRequestParticipant">
+	<group name="AuthorisationParticipant2">
+		<participant class="ir.navaco.mcb.credit.card.transaction.participant.authorisation.AuthorisationParticipant2" logger="Q2Logger"/>
+	</group>
+
+	<group name="FinancialParticipant">
 		<participant class="ir.navaco.mcb.credit.card.transaction.participant.financial.request.FinancialRequestParticipant" logger="Q2Logger"/>
 	</group>
 

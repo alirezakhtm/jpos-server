@@ -57,6 +57,9 @@ public class ParticipantSelector implements GroupSelector,Configurable{
             case MTI_1420:
             case MTI_1430:
                 return configuration.get("rev", "");
+            case MTI_1604:
+            case MTI_1614:
+                return configuration.get("auth2", "");
             case MTI_1804:
             case MTI_1814:
                 return configuration.get("net", "");
