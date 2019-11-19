@@ -25,7 +25,7 @@ public class Message1220 extends MessageAbstract {
     private String TXRefRecoverNo; //field 37
     private String TXAcquirePosNumber; //field 41
     private String cardAcquireNumber; //field 42
-    private AdditionalTxData additionalData; //field 48
+//    private AdditionalTxData additionalData; //field 48
     private String TXCurrency; //field 49
     private OriginalTx originalTxData; //field 56
     private String TXCoding; //field 62
@@ -127,13 +127,13 @@ public class Message1220 extends MessageAbstract {
         this.cardAcquireNumber = cardAcquireNumber;
     }
 
-    public AdditionalTxData getAdditionalData() {
+    /*public AdditionalTxData getAdditionalData() {
         return additionalData;
     }
 
     public void setAdditionalData(AdditionalTxData additionalData) {
         this.additionalData = additionalData;
-    }
+    }*/
 
     public String getTXCurrency() {
         return TXCurrency;

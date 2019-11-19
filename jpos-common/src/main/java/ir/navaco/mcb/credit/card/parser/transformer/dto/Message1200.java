@@ -27,7 +27,7 @@ public class Message1200 extends MessageAbstract {
     private String TXAcquirePosNumber; //field 41
     private String cardAcquireNumber; //field 42
     private String cardAcquireNameLocation; //field 43
-    private AdditionalTxData additionalData; //field 48
+//    private AdditionalTxData additionalData; //field 48
     private String TXCurrency; //field 49
     private String TXCoding; //field 62 (NOTinPooya)
     private String dataRecord;//field 72 (Pooya Transactions)
@@ -162,13 +162,13 @@ public class Message1200 extends MessageAbstract {
         this.cardAcquireNameLocation = cardAcquireNameLocation;
     }
 
-    public AdditionalTxData getAdditionalData() {
+    /*public AdditionalTxData getAdditionalData() {
         return additionalData;
     }
 
     public void setAdditionalData(AdditionalTxData additionalData) {
         this.additionalData = additionalData;
-    }
+    }*/
 
     public String getTXCurrency() {
         return TXCurrency;

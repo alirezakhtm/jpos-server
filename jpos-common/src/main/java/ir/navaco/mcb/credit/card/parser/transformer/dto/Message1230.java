@@ -29,7 +29,7 @@ public class Message1230 extends MessageAbstract {
     private TxProcessStatusType TXResponseCode; //field 39
     private String TXAcquirePosNumber; //field 41
     private String cardAcquireNumber; //field 42
-    private AdditionalTxData additionalData; //field 48 (Pooya Transactions)
+//    private AdditionalTxData additionalData; //field 48 (Pooya Transactions)
     private String TXCurrency; //field 49
     private String extraAmount; //field 54 (Pooya Transactions)
     private OriginalTx originalTxData; //field 56 (Pooya Transactions)
@@ -157,13 +157,13 @@ public class Message1230 extends MessageAbstract {
         this.cardAcquireNumber = cardAcquireNumber;
     }
 
-    public AdditionalTxData getAdditionalData() {
+    /*public AdditionalTxData getAdditionalData() {
         return additionalData;
     }
 
     public void setAdditionalData(AdditionalTxData additionalData) {
         this.additionalData = additionalData;
-    }
+    }*/
 
     public String getTXCurrency() {
         return TXCurrency;

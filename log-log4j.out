@@ -1,56 +1,55 @@
-2019-11-18 16:30:26,521 INFO  - File [D:\Projects\code-examples\jpos\jpos-server\jpos-gateway\target\classes\hibernate.cfg.xml] exists.
-2019-11-18 16:30:28,450 INFO  - SessionFactory has been built successfully.
-2019-11-18 16:30:37,170 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:30:37,179 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:30:37,183 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:30:37,186 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:30:37,189 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:30:47,058 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:30:47,060 INFO  - ProcessCodeType: 310000
-2019-11-18 16:30:47,064 INFO  - This request ABORTED because process code 310000 is not allowed
-2019-11-18 16:31:14,322 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:31:14,322 INFO  - ProcessCodeType: 310000
-2019-11-18 16:31:14,323 INFO  - This request with process code 310000 allowed according to policies for MTI 1100
-2019-11-18 16:31:14,325 INFO  - Fetching data for setting configuration of HTTP started.
-2019-11-18 16:31:14,325 INFO  - Fetching data for setting configuration finished successfully.
-2019-11-18 16:31:14,462 INFO  - Message converted to the json format.
-2019-11-18 16:31:14,462 INFO  - Message is ::: 
+2019-11-19 17:46:10,774 INFO  - File [D:\Projects\code-examples\jpos\jpos-server\jpos-gateway\target\classes\hibernate.cfg.xml] exists.
+2019-11-19 17:46:12,671 INFO  - SessionFactory has been built successfully.
+2019-11-19 17:46:13,027 INFO  - Policies has been fetched from database, number of policies is >> 4
+2019-11-19 17:46:13,036 INFO  - Policies has been fetched from database, number of policies is >> 4
+2019-11-19 17:46:13,040 INFO  - Policies has been fetched from database, number of policies is >> 4
+2019-11-19 17:46:13,044 INFO  - Policies has been fetched from database, number of policies is >> 4
+2019-11-19 17:46:13,047 INFO  - Policies has been fetched from database, number of policies is >> 4
+2019-11-19 17:46:27,549 INFO  - Policies has been fetched from database, number of policies is >> 4
+2019-11-19 17:46:27,551 INFO  - ProcessCodeType: 310000
+2019-11-19 17:46:27,554 INFO  - This request with process code 310000 allowed according to policies for MTI 1200
+2019-11-19 17:46:30,699 INFO  - Fetching data for setting configuration of HTTP started.
+2019-11-19 17:46:30,699 INFO  - Fetching data for setting configuration finished successfully.
+2019-11-19 17:46:32,899 INFO  - Message converted to the json format.
+2019-11-19 17:46:32,899 INFO  - Message is ::: 
 {
-  "primaryBinaryDesign" : null,
-  "secondaryBinaryDesign" : null,
-  "sentDataToShetabDt" : null,
+  "primaryBinaryDesign" : "F234C501A8E18000",
+  "secondaryBinaryDesign" : "0000000004000000",
+  "sentDataToShetabDt" : 1573680462000,
   "mac" : null,
-  "isoMsgPack" : "MTEwMOI0xQGI4YAAAAAAAAQAAAAxNDEzMjEzMjEzMjEzMjEzMzEwMDAwMTExNDEyNTc0Mjg3MTE5NzE5MTExNDEyNTc0MjAwMTExMTE0NTMxMzIxMDEwMTIxMzE0NDEwODA2NjAzNzk5MDY2MjgwMjMwMDAwMDAxODI4Njk2Nzc3Nzc3NyAgIDc3Nzc3Nzc3NzYwMDQwICAgICAgICAgICAgICAgICAgICAgICAgICAgICA/Pz8/PyA/Pz8/PzAzMlAxMzAwNjg3MTE5N0QwMTAxNDIwMTkxMTE0MTI1NzQyMzY0MTIzMTAwMTE4NTc2MTU=",
+  "isoMsgPack" : "MTIwMPI0xQGo4YAAAAAAAAQAAAAxNDEzMjEzMjEzMjEzMjEzMzEwMDAwMDAwMDAxNTI2MzU5MTExNDEyNTc0MjM2MDIxMDE5MTExNDEyNTc0MjAwMTExMTE0NTMxMzIxMDEwMTIxMzE0NDIwMDA2NjAzNzk5MDY2MjgwMjMzNTEzMjEzMjEzMjEzMjEzPTAwMTE1MDYxNDk4OTE3OTAwMDAxMDAwMDAwMTgyODY5Njc3Nzc3NzcgICA3Nzc3Nzc3Nzc2MDA0MCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPz8/Pz8gPz8/Pz8wMzJQMTMwMDYzNjAyMTBEMDEwMTQyMDE5MTExNDEyNTc0MjM2NDEyMzEwMDExODU3NjE1",
   "accountNo" : 13213213213213,
+  "dateExpiration" : "0011",
+  "merchantType" : 5313,
   "posInfo" : "210101213144",
-  "functionCode" : "REMAIN_REQUEST",
-  "acquireBusinessType" : null,
+  "functionCode" : "FINANCIAL_REQUEST",
   "acquireInstituteCode" : 603799,
   "senderInstituteCode" : 628023,
+  "track2Data" : "13213213213213=00115061498917900001",
   "cardAcquireNumber" : "   777777777600",
   "cardAcquireNameLocation" : "                             ????? ?????",
-  "specialExtraData" : null,
-  "receiverInstituteCode" : null,
+  "dataRecord" : null,
+  "accountIdentification" : "310011857615",
+  "pooyaTxReserved" : null,
+  "txcurrency" : "364",
+  "txcoding" : null,
+  "txprocessCode" : "REQUEST_REMAINING_ACCOUNT",
   "txrefRecoverNo" : "000000182869",
   "rawTXProcessCode" : "310000",
+  "txamountAcquire" : 1526359,
   "txreceiveDateTime" : 1573677000000,
   "txacquirePosNumber" : "67777777",
-  "txprocessCode" : "REQUEST_REMAINING_ACCOUNT",
-  "txcoding" : null,
-  "txdateTime" : null,
-  "txid" : null
+  "txdateTime" : 1573680462000,
+  "txid" : 360210
 }
-2019-11-18 16:31:14,595 INFO  - HTTP client has been created for connection.
-2019-11-18 16:31:14,601 INFO  - Message as POST method ready to send to the server :: http://localhost:9090/message1100
-2019-11-18 16:31:14,663 INFO  - ======================================
-2019-11-18 16:31:14,663 INFO  - Header of Response ::: Content-Type: application/json;charset=UTF-8
-2019-11-18 16:31:14,663 INFO  - Header of Response ::: Transfer-Encoding: chunked
-2019-11-18 16:31:14,663 INFO  - Header of Response ::: Date: Mon, 18 Nov 2019 13:01:14 GMT
-2019-11-18 16:31:14,663 INFO  - Message has been sent successfully to server.
-2019-11-18 16:31:14,669 INFO  - Response from server has been received.
-2019-11-18 16:31:14,701 INFO  - Response ::: {"primaryBinaryDesign":null,"secondaryBinaryDesign":null,"sentDataToShetabDt":null,"mac":null,"isoMsgPack":null,"accountNo":13213213213213,"acquireInstituteCode":603799,"senderInstituteCode":628023,"cardAcquireNumber":"   777777777600","responseExtraData":null,"extraAmount":"0005364C0000011000000009364C000001100000","receiverInstituteCode":null,"txresponseCode":"TX_SUCCESSFUL","rawTXProcessCode":"310000","txapprovalCode":"000000","txacquirePosNumber":"67777777","txrefRecoverNo":"000000182869","txprocessCode":"REQUEST_REMAINING_ACCOUNT","txcoding":null,"txsettlementDate":null,"txid":null,"txdateTime":null}
-2019-11-18 16:31:14,701 INFO  - Fetching response from jpos space to send it.
-2019-11-18 16:31:14,702 INFO  - Sending message done successfully.
-2019-11-18 16:31:33,540 INFO  - Policies has been fetched from database, number of policies is >> 4
-2019-11-18 16:31:33,541 INFO  - ProcessCodeType: 310000
-2019-11-18 16:31:33,541 INFO  - This request ABORTED because process code 310000 is not allowed
+2019-11-19 17:46:33,058 INFO  - HTTP client has been created for connection.
+2019-11-19 17:46:33,063 INFO  - Message as POST method ready to send to the server :: http://localhost:9090/message1200
+2019-11-19 17:46:33,245 INFO  - ======================================
+2019-11-19 17:46:33,246 INFO  - Header of Response ::: Content-Type: application/json;charset=UTF-8
+2019-11-19 17:46:33,246 INFO  - Header of Response ::: Transfer-Encoding: chunked
+2019-11-19 17:46:33,246 INFO  - Header of Response ::: Date: Tue, 19 Nov 2019 14:16:33 GMT
+2019-11-19 17:46:33,246 INFO  - Message has been sent successfully to server.
+2019-11-19 17:46:33,251 INFO  - Response from server has been received.
+2019-11-19 17:46:33,290 INFO  - Response ::: {"primaryBinaryDesign":"F234C501A8E18000","secondaryBinaryDesign":"0000000004000000","sentDataToShetabDt":"2019-11-13T21:27:42.000+0000","mac":null,"isoMsgPack":null,"accountNo":13213213213213,"dateExpiration":"0011","merchantType":5313,"posInfo":"210101213144","functionCode":"FINANCIAL_REQUEST","acquireInstituteCode":603799,"senderInstituteCode":628023,"track2Data":"13213213213213=00115061498917900001","cardAcquireNumber":"   777777777600","cardAcquireNameLocation":"                             ????? ?????","responseExtraData":null,"extraAmount":"0005364C0000011000000009364C000001100000","receiverInstituteCode":null,"accountIdentification":"310011857615","txrefRecoverNo":"000000182869","txacquirePosNumber":"67777777","txapprovalCode":"000000","txamountAcquire":1526359,"rawTXProcessCode":"310000","txresponseCode":"TX_SUCCESSFUL","txreceiveDateTime":"2019-11-13T20:30:00.000+0000","txcoding":null,"txprocessCode":"REQUEST_REMAINING_ACCOUNT","txcurrency":"364","txsettlementDate":null,"txid":360210,"txdateTime":"2019-11-13T21:27:42.000+0000"}
+2019-11-19 17:46:33,291 ERROR - 
+2019-11-19 17:46:33,291 INFO  - Fetching response from jpos space to send it.

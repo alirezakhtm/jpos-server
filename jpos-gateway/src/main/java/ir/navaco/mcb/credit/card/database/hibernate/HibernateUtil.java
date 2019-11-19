@@ -24,7 +24,9 @@ public class HibernateUtil {
 
     private SessionFactory buildSessionFactory() {
         try {
-            File config = new File(getClass().getClassLoader().getResource("hibernate.cfg.xml").getFile());
+            // this line of code must be changed when application wanted to deploy on docker container
+            /*File config = new File(getClass().getClassLoader().getResource("hibernate.cfg.xml").getFile());*/
+            File config = new File("/root/jpos/hibernate.cfg.xml");
             if(config.exists()) logger.info("File [" + config.getPath() + "] exists.");
             /*return new AnnotationConfiguration()
                     .configure(config)

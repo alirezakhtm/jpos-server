@@ -33,7 +33,7 @@ public class Message1210 extends MessageAbstract {
     private String cardAcquireNumber; //field 42
     private String cardAcquireNameLocation; //field 43 (Pooya Transactions)
     private String responseExtraData; //field 44
-    private AdditionalTxData additionalData; //field 48 (Pooya Transactions)
+//    private AdditionalTxData additionalData; //field 48 (Pooya Transactions)
     private String TXCurrency; //field 49
     private String extraAmount; //field 54
     private String TXCoding; //field 62 (NOTinPooya)
@@ -200,13 +200,13 @@ public class Message1210 extends MessageAbstract {
         this.responseExtraData = responseExtraData;
     }
 
-    public AdditionalTxData getAdditionalData() {
+    /*public AdditionalTxData getAdditionalData() {
         return additionalData;
     }
 
     public void setAdditionalData(AdditionalTxData additionalData) {
         this.additionalData = additionalData;
-    }
+    }*/
 
     public String getTXCurrency() {
         return TXCurrency;

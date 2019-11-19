@@ -67,7 +67,7 @@ public class EchoService implements EchoServiceAPI{
         message1210.setCardAcquireNameLocation(message1200.getCardAcquireNameLocation());
         //message1210.setResponseExtraData(message1200.getResponseExtraData());
         message1210.setAccountIdentification(message1200.getAccountIdentification());
-        message1210.setAdditionalData(message1200.getAdditionalData());
+//        message1210.setAdditionalData(message1200.getAdditionalData());
         message1210.setTXCurrency(message1200.getTXCurrency());
         message1210.setExtraAmount("0005364C0000011000000009364C000001100000");
         message1210.setTXCoding(message1200.getTXCoding());
@@ -101,7 +101,7 @@ public class EchoService implements EchoServiceAPI{
         message1230.setTXResponseCode(TxProcessStatusType.TX_SUCCESSFUL);
         message1230.setTXAcquirePosNumber(message1220.getTXAcquirePosNumber());
         message1230.setCardAcquireNumber(message1220.getCardAcquireNumber());
-        message1230.setAdditionalData(message1220.getAdditionalData());
+//        message1230.setAdditionalData(message1220.getAdditionalData());
         message1230.setTXCurrency(message1220.getTXCurrency());
         message1230.setExtraAmount("0005364C0000011000000009364C000001100000");
         message1230.setOriginalTxData(message1220.getOriginalTxData());

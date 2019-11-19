@@ -9,30 +9,30 @@ import java.util.Date;
 
 /**
  * @author a.khatamidoost <alireza.khtm@gmail.com>
- * */
+ */
 public class Message1420 extends MessageAbstract {
-    private Long                    accountNo; //field 2
-    private TxProcessCodeType               TXProcessCode; //field 3
-    private String                      RawTXProcessCode;
-    private BigDecimal                      TXAmountAcquire; //field 4
-    private String                           dateExpiration; //field 14 (Pooya Transactions, comes in persian)
-    private Date                        TXReceiveDateTime; //field 17
-    private Short                        merchantType; //field 18 (Pooya Transactions)
-    private String                   posInfo; //field 22 (Pooya Transactions)
-    private FunctionCodeType                    functionCode; //field 24
-    private Short                               reasonCode; //field 25
-    private Long                         acquireInstituteCode; //field 32
-    private Long                            senderInstituteCode; //field 33
-    private String                                  track2Data; //field 35 (Pooya Transactions)
-    private String                              TXRefRecoverNo; //field 37
-    private String                              TXApprovalCode; //field 38 (Pooya Transactions)
-    private String                              TXAcquirePosNumber; //field 41
-    private String                              cardAcquireNumber; //field 42
-    private String                              cardAcquireNameLocation; //field 43 (Pooya Transactions)
-    private String                              TXCurrency; //field 49
-    private OriginalTx                                      originalTxData; //field 56
-    private String                          TXCoding; //field 62 (NOTinPooya)
-    private String                          accountIdentification; //field 102 (Pooya Transactions)
+    private Long accountNo; //field 2
+    private TxProcessCodeType TXProcessCode; //field 3
+    private String RawTXProcessCode;
+    private BigDecimal TXAmountAcquire; //field 4
+    private String dateExpiration; //field 14 (Pooya Transactions, comes in persian)
+    private Date TXReceiveDateTime; //field 17
+    private Short merchantType; //field 18 (Pooya Transactions)
+    private String posInfo; //field 22 (Pooya Transactions)
+    private FunctionCodeType functionCode; //field 24
+    private Short reasonCode; //field 25
+    private Long acquireInstituteCode; //field 32
+    private Long senderInstituteCode; //field 33
+    private String track2Data; //field 35 (Pooya Transactions)
+    private String TXRefRecoverNo; //field 37
+    private String TXApprovalCode; //field 38 (Pooya Transactions)
+    private String TXAcquirePosNumber; //field 41
+    private String cardAcquireNumber; //field 42
+    private String cardAcquireNameLocation; //field 43 (Pooya Transactions)
+    private String TXCurrency; //field 49
+    private OriginalTx originalTxData; //field 56
+    private String TXCoding; //field 62 (NOTinPooya)
+    private String accountIdentification; //field 102 (Pooya Transactions)
 
     public Long getAccountNo() {
         return accountNo;

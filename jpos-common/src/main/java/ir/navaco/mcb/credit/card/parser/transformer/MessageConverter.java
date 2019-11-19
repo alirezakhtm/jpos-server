@@ -9,6 +9,7 @@ import ir.navaco.mcb.credit.card.parser.transformer.dto.Message1430;
 import ir.navaco.mcb.credit.card.parser.transformer.dto.Message1614;
 import org.jpos.iso.ISOException;
 import org.jpos.iso.ISOMsg;
+import org.jpos.util.slf4j.JPOSLogger;
 
 import java.util.Date;
 
@@ -16,6 +17,10 @@ import java.util.Date;
  * @author a.khatamidoost <alireza.khtm@gmail.com>
  */
 public class MessageConverter {
+
+    private static final String TAG = "MessageConverter";
+    private JPOSLogger logger = new JPOSLogger(TAG);
+
     public <T, P> P convert(T messageInput, Class<P> pClass, MessageType messageType) throws ISOException {
         switch (messageType) {
             case MTI_1100:
@@ -72,7 +77,7 @@ public class MessageConverter {
                     message1200_target.setTXAcquirePosNumber(message1200.getTXAcquirePosNumber());
                     message1200_target.setCardAcquireNumber(message1200.getCardAcquireNumber());
                     message1200_target.setCardAcquireNameLocation(message1200.getCardAcquireNameLocation());
-                    message1200_target.setAdditionalData(message1200.getAdditionalData());
+//                    message1200_target.setAdditionalData(message1200.getAdditionalData());
                     message1200_target.setTXCurrency(message1200.getTXCurrency());
                     message1200_target.setTXCoding(message1200.getTXCoding());
                     message1200_target.setDataRecord(message1200.getDataRecord());
@@ -107,7 +112,7 @@ public class MessageConverter {
                     message1220_target.setTXRefRecoverNo(message1220.getTXRefRecoverNo());
                     message1220_target.setTXAcquirePosNumber(message1220.getTXAcquirePosNumber());
                     message1220_target.setCardAcquireNumber(message1220.getCardAcquireNumber());
-                    message1220_target.setAdditionalData(message1220.getAdditionalData());
+//                    message1220_target.setAdditionalData(message1220.getAdditionalData());
                     message1220_target.setTXCurrency(message1220.getTXCurrency());
                     message1220_target.setOriginalTxData(message1220.getOriginalTxData());
                     message1220_target.setTXCoding(message1220.getTXCoding());
@@ -249,7 +254,16 @@ public class MessageConverter {
                     message1210_pooya.setCardAcquireNameLocation(message1210_transformer.getCardAcquireNameLocation());
                     message1210_pooya.setResponseExtraData(message1210_transformer.getResponseExtraData());
                     message1210_pooya.setAccountIdentification(message1210_transformer.getAccountIdentification());
-                    message1210_pooya.setAdditionalData(message1210_transformer.getAdditionalData());
+                    ISOMsg isoMsg = new ISOMsg();
+                    isoMsg.unpack(message1210_transformer.getIsoMsgPack());
+                    AdditionalTxData additionalTxData = null;
+                    try {
+                        additionalTxData = new AdditionalTxData(isoMsg);
+                    } catch (Exception e) {
+                        logger.error(e.getMessage());
+                        e.printStackTrace();
+                    }
+                    message1210_pooya.setAdditionalData(additionalTxData);
                     message1210_pooya.setTXCurrency(message1210_transformer.getTXCurrency());
                     message1210_pooya.setExtraAmount(message1210_transformer.getExtraAmount());
                     message1210_pooya.setTXCoding(message1210_transformer.getTXCoding());
@@ -285,15 +299,22 @@ public class MessageConverter {
                     message1230_pooya.setTXResponseCode(message1230_transformer.getTXResponseCode());
                     message1230_pooya.setTXAcquirePosNumber(message1230_transformer.getTXAcquirePosNumber());
                     message1230_pooya.setCardAcquireNumber(message1230_transformer.getCardAcquireNumber());
-                    message1230_pooya.setAdditionalData(message1230_transformer.getAdditionalData());
+                    ISOMsg isoMsg = new ISOMsg();
+                    isoMsg.unpack(message1230_transformer.getIsoMsgPack());
+                    AdditionalTxData additionalTxData = null;
+                    try {
+                        additionalTxData = new AdditionalTxData(isoMsg);
+                    } catch (Exception e) {
+                        logger.error(e.getMessage());
+                        e.printStackTrace();
+                    }
+                    message1230_pooya.setAdditionalData(additionalTxData);
                     message1230_pooya.setTXCurrency(message1230_transformer.getTXCurrency());
                     message1230_pooya.setExtraAmount(message1230_transformer.getExtraAmount());
                     message1230_pooya.setOriginalTxData(message1230_transformer.getOriginalTxData());
                     message1230_pooya.setTXCoding(message1230_transformer.getTXCoding());
                     message1230_pooya.setReceiverInstituteCode(message1230_transformer.getReceiverInstituteCode());
                     message1230_pooya.setAccountIdentification(message1230_transformer.getAccountIdentification());
-
-
                     return (P) message1230_pooya;
                 } else return null;
             case MTI_1430:
